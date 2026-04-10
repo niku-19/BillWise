@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Urbanist", sans-serif;
+  --breakpoint-3xl: 1920px;
+  --color-primary: #ff9324;
+  --primary-gradient: linear-gradient(
+    89deg,
+    rgba(255, 181, 128, 1) 0%,
+    rgba(255, 135, 48, 1) 20%,
+    rgba(255, 122, 24, 1) 80%
+  );
+  --primary-gradient-hover: linear-gradient(
+    89deg,
+    rgba(255, 126, 32, 1) 70%,
+    rgba(255, 122, 24, 1) 100%
+  );
+}
+
+@layer base {
+  html {
+    font-family: var(--font-display);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #fcfbfc;
+  }
+}
