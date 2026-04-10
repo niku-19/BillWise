@@ -1,28 +1,36 @@
 require("dotenv").config();
-const cors = require('cors');
-const express = require('express');
+const cors = require("cors");
+const express = require("express");
 const path = require("path");
-const connectDB = require('./config/db');
+const connectDB = require("./config/db");
 
-const authRoutes = require('./routes/authRoutes')
-const invoiceRoutes = require('./routes/invoiceRoutes')
-const aiRoutes = require('./routes/aiRoutes')
+const authRoutes = require("./routes/authRoutes");
+const invoiceRoutes = require("./routes/invoiceRoutes");
+const aiRoutes = require("./routes/aiRoutes");
 
-const app = express()
+const app = express();
 
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}))
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 
 connectDB();
 
-app.use(express.json())
+app.use(express.json());
 
 app.use("/api/auth", authRoutes);
-app.use("/api/invoices", invoiceRoutes)
-app.use("/api/ai", aiRoutes)
+app.use("/api/invoices", invoiceRoutes);
+app.use("/api/ai", aiRoutes);
+
+app.use("/", (req, res) => {
+  res.send(
+    "Welcome to the Bill-Wise AI API. Please refer to the documentation for usage details.",
+  );
+});
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log("Server running on PORT:", PORT))
+app.listen(PORT, () => console.log("Server running on PORT:", PORT));
