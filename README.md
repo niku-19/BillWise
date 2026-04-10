@@ -201,4 +201,3 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 - The open-source community for the amazing tools and libraries
 
 </content>
-<parameter name="filePath">/Users/nikhilranjankumar/Desktop/Project/BillWise/README.md
